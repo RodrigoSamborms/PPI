@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+	<head>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			:root{
+				--light: #ffffff; /* casillas claras (blanco) */
+				--dark:  #000000; /* casillas oscuras (negro) */
+				--cell-size: 60px;
+			}
+			html,body{height:100%;}
+			body{
+				margin:0;
+				font-family: "Segoe UI", Roboto, Arial, sans-serif;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				background:#f7f7f7;
+			}
+			.container{ text-align:center; padding:16px; }
+			.board{
+				border-collapse:collapse;
+				margin:12px auto;
+				box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+			}
+			.board td{
+				width:var(--cell-size);
+				height:var(--cell-size);
+				padding:0;
+			}
+			/* alternancia tradicional: las casillas oscuras en patrón de tablero */
+			.board tr:nth-child(even) td:nth-child(odd),
+			.board tr:nth-child(odd) td:nth-child(even){
+				background:var(--dark);
+			}
+			.board tr:nth-child(even) td:nth-child(even),
+			.board tr:nth-child(odd) td:nth-child(odd){
+				background:var(--light);
+			}
+
+			@media (max-width:520px){ :root{ --cell-size:36px; } }
+		</style>
+	</head>
+		<body>
+		<div class="container">
+			<table class="board" aria-label="Tablero de ajedrez">
+				<tbody>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
