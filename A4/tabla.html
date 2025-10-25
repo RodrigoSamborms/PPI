@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>tabla 2x2 normalizada</title>
+        <style>
+            /* Hacer la tabla exterior cuadrada y forzar celdas 50%/50% */
+            table.outer{border-collapse:collapse; width:960px; height:960px; table-layout:fixed}
+            table.outer td{border:1px solid #666; width:50%; height:50%; padding:8px; vertical-align:middle}
+            .cell-inner{display:flex; align-items:center; justify-content:center; height:100%}
+            /* Limitar tamaño visual de las tablas internas para que se vean como en rejilla */
+            .cell-inner table.inner{width:auto !important; height:auto !important; max-width:420px; max-height:420px; border-collapse:collapse}
+            .cell-inner table.inner td{padding:6px}
+        </style>
+    </head>
+    <body>
+        <table class="outer" role="presentation">
+            <tr>
+                <td>
+                    <div class="cell-inner">
+                        <!-- tabla1 normalizada -->
+                        <table class="inner" border="1" role="table">
+                            <tr><td></td></tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table">
+                                        <tr><td></td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table">
+                                        <tr>
+                                            <td style="width:100px"></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-inner">
+                        <!-- tabla2 normalizada -->
+                        <table class="inner" border="1" role="table">
+                            <tr><td></td></tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table">
+                                        <tr><td></td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table">
+                                        <tr>
+                                            <td style="width:50%"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="2">&nbsp;</td></tr>
+                                        <tr><td colspan="2"><table border="1"><tr><td></td></tr></table></td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cell-inner">
+                        <!-- tabla3 normalizada -->
+                        <table class="inner" border="1" role="table">
+                            <tr><td></td></tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table"><tr><td></td></tr></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="1" role="table">
+                                                                                        <tr>
+                                                                                            <td style="width:100px"></td>
+                                                                                            <td>
+                                                                                                <table border="1"><tr><td></td></tr></table>
+                                                                                                <table border="1"><tr><td></td></tr></table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                <tr><td colspan="2"><table border="1"><tr><td></td></tr></table></td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <div class="cell-inner">
+                        <!-- tabla4 normalizada -->
+                        <table class="inner" border="1" role="table">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
