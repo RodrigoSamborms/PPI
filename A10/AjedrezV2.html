@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tablero de Ajedrez (divs)</title>
+		<style>
+			:root{
+				--size: 64px; /* tamaño de cada casilla */
+				--board-size: calc(var(--size) * 8);
+				--black: #444;
+				--white: #fff;
+			}
+			html,body{height:100%;}
+			body{
+				margin:0;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				font-family:Segoe UI, Roboto, Arial, sans-serif;
+				background:#f0f0f0;
+			}
+			.wrap{
+				display:flex;
+				gap:20px;
+				align-items:flex-start;
+			}
+			.board{
+				width:var(--board-size);
+				height:var(--board-size);
+				display:grid;
+				grid-template-columns:repeat(8, 1fr);
+				grid-template-rows:repeat(8, 1fr);
+				border:2px solid #222;
+				box-shadow:0 6px 18px rgba(0,0,0,0.12);
+				user-select:none;
+			}
+			.square{
+				width:100%;
+				height:100%;
+			}
+			.square.white{background:var(--white);} 
+			.square.black{background:var(--black);} 
+			/* pequeñas mejoras visuales */
+			.square:hover{outline:3px solid rgba(255,200,0,0.25);}
+			.coords{
+				display:flex;
+				flex-direction:column;
+				gap:6px;
+				font-size:14px;
+				color:#222;
+			}
+			.legend{font-size:13px;color:#333}
+			@media (max-width:520px){
+				:root{--size:40px}
+			}
+		</style>
+	</head>
+	<body>
+			<div class="wrap">
+				<div id="board" class="board" role="grid" aria-label="Tablero de ajedrez"></div>
+			</div>
+
+		<script>
+			// Genera un tablero 8x8 usando divs y aplica clase según paridad fila+col
+			(function(){
+				const board = document.getElementById('board');
+				const size = 8;
+				for(let row = 0; row < size; row++){
+					for(let col = 0; col < size; col++){
+						const cell = document.createElement('div');
+						cell.className = 'square ' + (((row + col) % 2 === 0) ? 'white' : 'black');
+						cell.setAttribute('role','gridcell');
+						cell.setAttribute('aria-rowindex', row + 1);
+						cell.setAttribute('aria-colindex', col + 1);
+						cell.dataset.row = row + 1;
+						cell.dataset.col = col + 1;
+						// opcional: mostrar coordenadas internas para depuración o enseñanza
+						// cell.textContent = String.fromCharCode(65 + col) + (8 - row);
+						board.appendChild(cell);
+					}
+				}
+			})();
+		</script>
+	</body>
+</html>
