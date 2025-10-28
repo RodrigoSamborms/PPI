@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<title>Formulario</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Registro</h1>
+		<form id="userForm" action="#" method="post">
+			<div>
+				<label for="email">Correo electrónico</label>
+			<input id="email" class="input" name="email" type="email" placeholder="tucorreo@ejemplo.com">
+			</div>
+
+			<div>
+				<label for="pass">Contraseña</label>
+			<input id="pass" class="input" name="pass" type="password" placeholder="Tu contraseña">
+			</div>
+
+			<div>
+				<label for="role">Rol</label>
+			<select id="role" name="role" class="input">
+					<option value="0" selected>Seleccionar</option>
+					<option value="1">Gerente</option>
+					<option value="2">Ejecutivo</option>
+				</select>
+        
+			</div>
+
+			<button type="submit" class="button">Enviar</button>
+		</form>
+	</div>
+
+    
+	<script src="funcionValidacion.js"></script>
+</body>
+</html>
