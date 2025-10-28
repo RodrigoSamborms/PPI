@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Galería — Una columna</title>
+        <style>
+            body { font-family: Arial, Helvetica, sans-serif; padding: 20px; background: #fff; color: #222 }
+            /* contenedor de la tabla centrado y con ancho máximo */
+            table { border-collapse: collapse; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; width: 100%; max-width: 900px; margin: 0 auto; }
+            th, td { border: 1px solid #eee; padding: 10px; text-align: center; vertical-align: middle }
+            th.title-row { font-size: 1.25rem; padding: 14px 10px; text-align: center; background: #fafafa; }
+            /* encabezados de columna (cuando estén visibles) */
+            th.col-head { background:#f7f7f7; font-weight:600 }
+            /* estilo para texto de ruta en columna 2 */
+            .link-text { color:#0b61a4; font-family:monospace; display:inline-block; word-break:break-all }
+            /* estilo para botones en columna 3 (sin acción por ahora) */
+            .action-btn { background:#007bff; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer }
+            .action-btn:active{transform:translateY(1px)}
+            a.image-link { display: inline-block; overflow: hidden; text-decoration: none; color: inherit }
+            img.thumb { display: block; width: 100%; height: auto; max-width: 320px; margin: 0 auto; border-radius: 4px; }
+            /* diseño para 3 columnas: primera columna para la imagen, otras dos para contenido adicional */
+            td, th { width: 33.333%; }
+            td.image-cell { width: 40%; }
+            td.col2, td.col3 { width: 30%; }
+            /* espacio visual entre filas */
+            tr + tr td { padding-top: 12px; padding-bottom: 12px; }
+            /* responsive: en pantallas pequeñas apilar columnas en una sola columna */
+            @media (max-width:600px){
+                table, thead, tbody, th, td, tr { display: block; }
+                th.title-row { display:block }
+                tr { margin-bottom: 12px }
+                td { display:block; width:100% }
+                img.thumb { max-width: 100%; }
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Galería — Imágenes enlazadas</h1>
+
+        <table>
+            <tr>
+                <th class="title-row" colspan="3">Coleccion de Autos</th>
+            </tr>
+            <!-- encabezado de columnas eliminado a petición del usuario -->
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina1.html">
+                        <img class="thumb" src="Imagenes/imagen01.jpg" alt="Página 1" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina1.html">pagina1.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina2.html">
+                        <img class="thumb" src="Imagenes/imagen02.jpg" alt="Página 2" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina2.html">pagina2.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina3.html">
+                        <img class="thumb" src="Imagenes/imagen03.jpg" alt="Página 3" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina3.html">pagina3.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina4.html">
+                        <img class="thumb" src="Imagenes/imagen04.jpg" alt="Página 4" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina4.html">pagina4.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina5.html">
+                        <img class="thumb" src="Imagenes/imagen05.jpg" alt="Página 5" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina5.html">pagina5.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina6.html">
+                        <img class="thumb" src="Imagenes/imagen06.jpg" alt="Página 6" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina6.html">pagina6.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina7.html">
+                        <img class="thumb" src="Imagenes/imagen07.jpg" alt="Página 7" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina7.html">pagina7.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina8.html">
+                        <img class="thumb" src="Imagenes/imagen08.jpg" alt="Página 8" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina8.html">pagina8.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina9.html">
+                        <img class="thumb" src="Imagenes/imagen09.jpg" alt="Página 9" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina9.html">pagina9.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+            <tr>
+                <td class="image-cell">
+                    <a class="image-link" href="pagina10.html">
+                        <img class="thumb" src="Imagenes/imagen10.jpg" alt="Página 10" loading="lazy">
+                    </a>
+                </td>
+                <td class="col2"><a class="link-text" href="pagina10.html">pagina10.html</a></td>
+                <td class="col3"><button class="action-btn" type="button">ocultar fila</button></td>
+            </tr>
+
+        </table>
+
+    </body>
+    <!-- Carga jQuery local y el script que asocia la acción de ocultar filas. -->
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="ocultar.js"></script>
+</html>
