@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+            <title>Tabla con imágenes enlazadas</title>
+            <style>
+                body { font-family: Arial, Helvetica, sans-serif; padding: 20px; }
+                /* tabla con borde sencillo y apariencia limpia; cada celda con borde tenue */
+                table { border-collapse: collapse; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; width: 100%; max-width: 900px; margin: 0 auto; }
+                th, td { border: 1px solid #eee; padding: 8px; text-align: center; }
+                th.title-row { font-size: 1.25rem; padding: 12px 8px; text-align: center; background: #fafafa; }
+                a.image-link { display: inline-block; overflow: hidden; text-decoration: none; }
+                img.thumb { display: block; width: 100%; height: auto; max-width: 420px; }
+                /* layout para forzar 2 columnas responsivas */
+                td { width: 50%; }
+                @media (max-width:600px){ td{display:block; width:100%} }
+            </style>
+    </head>
+    <body>
+        <h1></h1>
+
+            <table>
+                <!-- fila adicional para el título (ocupa 2 columnas) -->
+                <tr>
+                    <th class="title-row" colspan="2">Galería de imágenes enlazadas</th>
+                </tr>
+                <!-- fila 1 -->
+                <tr>
+                    <td>
+                                    <a class="image-link" href="pagina1.html">
+                                        <img class="thumb" src="Imagenes/imagen01.jpg" alt="Página 1">
+                                    </a>
+                    </td>
+                    <td>
+                                    <a class="image-link" href="pagina2.html">
+                                        <img class="thumb" src="Imagenes/imagen02.jpg" alt="Página 2">
+                                    </a>
+                    </td>
+                </tr>
+                <!-- fila 2 -->
+                <tr>
+                    <td>
+                                    <a class="image-link" href="pagina3.html">
+                                        <img class="thumb" src="Imagenes/imagen03.jpg" alt="Página 3">
+                                    </a>
+                    </td>
+                    <td>
+                                    <a class="image-link" href="pagina4.html">
+                                        <img class="thumb" src="Imagenes/imagen04.jpg" alt="Página 4">
+                                    </a>
+                    </td>
+                </tr>
+                <!-- fila 3 -->
+                <tr>
+                    <td>
+                                    <a class="image-link" href="pagina5.html">
+                                        <img class="thumb" src="Imagenes/imagen05.jpg" alt="Página 5">
+                                    </a>
+                    </td>
+                    <td>
+                                    <a class="image-link" href="pagina6.html">
+                                        <img class="thumb" src="Imagenes/imagen06.jpg" alt="Página 6">
+                                    </a>
+                    </td>
+                </tr>
+                <!-- fila 4 -->
+                <tr>
+                    <td>
+                                    <a class="image-link" href="pagina7.html">
+                                        <img class="thumb" src="Imagenes/imagen07.jpg" alt="Página 7">
+                                    </a>
+                    </td>
+                    <td>
+                                    <a class="image-link" href="pagina8.html">
+                                        <img class="thumb" src="Imagenes/imagen08.jpg" alt="Página 8">
+                                    </a>
+                    </td>
+                </tr>
+                <!-- fila 5 -->
+                <tr>
+                    <td>
+                                    <a class="image-link" href="pagina9.html">
+                                        <img class="thumb" src="Imagenes/imagen09.jpg" alt="Página 9">
+                                    </a>
+                    </td>
+                    <td>
+                                    <a class="image-link" href="pagina10.html">
+                                        <img class="thumb" src="Imagenes/imagen10.jpg" alt="Página 10">
+                                    </a>
+                    </td>
+                </tr>
+            </table>
+
+    
+    </body>
+</html>
