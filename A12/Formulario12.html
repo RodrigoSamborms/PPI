@@ -1,0 +1,53 @@
+<html>
+
+ <head>
+  <title>Formulario request</title>
+  
+ </head>
+
+ <body>
+	<form name="forma01" action="MostrarDatos.php" method="POST">
+		<label>
+			Nombre:
+			<input id="campo1" type="text" name="nombre" placeholder="Escribe tu nombre" required>
+		</label>
+		
+		<br>
+		<label>Correo:</label>
+		<input type="email" name="correo" value="@udg.mx">
+		<br>
+		<label for="sexo">Genero:</label>
+		<input type="radio" name="sexo" value="F">Femenino
+		<input type="radio" name="sexo" value="M">Masculino
+		<br>
+		<input type="checkbox" name="boletin" value="1" checked>
+		<label for="boletin">Recibir Boletín</label>
+		<br>
+		<label for="comentario">Comentario:</label><br>
+		<textarea name="comentario" cols="30" rows="5"></textarea>
+		<br>
+		<label for="carrera">Carrera:</label>
+		<select name="carrera">
+			<option value="0" selected>Selecciona</option>
+			<option value="1">Ing. Informática</option>
+			<option value="2">Ing. Computación</option>			
+		</select>
+		<br>
+		<label for="pasw">Contraseña:</label>
+		<input type="password" name="pasw">
+		<br>
+		<label for="promedio">Promedio:</label>
+		<input type="number" name="promedio" min="60" max="100" value="60">
+		<br>
+		<label for="fecha">Fecha nacimiento:</label>
+		<input type="date" name="fecha">
+		
+		<br>
+		<input onClick="return recibe();" type="submit" value="Enviar con input">
+	</form>
+	
+ 
+ <script src="Validacion.js"></script>
+ </body>
+
+</html>
