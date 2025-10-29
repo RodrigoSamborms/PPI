@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>NOMBRES</title>
+	</head>
+	<body>
+		<?php
+			//$host="localhost";
+			//$username="admin";
+			//$user_pass="1234";
+			//$database_in_use="test";
+			
+			$db=new PDO("mysql:host=localhost; dbname=phptest", "usuariodb", "1234");
+			$statement = $db->prepare("SELECT * FROM nombres");
+			$statement->execute();
+			//leemos una fila a la vez
+			while ($row=$statement->fetch()){
+				print_r($row);
+			}
+			$statement = null; 
+		?>
+
+	</body>
+<html>
