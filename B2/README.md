@@ -1,0 +1,82 @@
+# Proyecto B2 - Sistema de Gestión de Empleados
+
+## Descripción
+Sistema web para gestionar empleados con funcionalidad de listado y eliminación lógica (soft delete) usando AJAX.
+
+## Archivos del Proyecto
+- `Empleados_Lista.php` - Página principal que muestra la lista de empleados
+- `empleados_eliminar.php` - Endpoint AJAX para marcar empleados como eliminados
+- `estilos.css` - Hoja de estilos CSS
+- `db_connect.php` - Archivo de conexión a la base de datos (debe estar en el servidor)
+
+## Configuración de Permisos en el Servidor
+
+Cuando subas archivos al servidor Raspberry Pi, es necesario ajustar los permisos para que Apache pueda leerlos.
+
+### Verificar permisos actuales
+```bash
+ls -l /var/www/html/ProduccionDB/
+```
+
+### Ajustar permisos de archivos individuales
+```bash
+# Para un archivo específico (ejemplo: estilos.css)
+sudo chmod 644 /var/www/html/ProduccionDB/estilos.css
+sudo chown rodrigo:www-data /var/www/html/ProduccionDB/estilos.css
+```
+
+### Ajustar permisos de todos los archivos del proyecto
+```bash
+# Cambiar a la carpeta del proyecto
+cd /var/www/html/ProduccionDB/
+
+# Ajustar permisos de directorios (755)
+sudo find /var/www/html/ProduccionDB -type d -exec chmod 755 {} \;
+
+# Ajustar permisos de archivos (644)
+sudo find /var/www/html/ProduccionDB -type f -exec chmod 644 {} \;
+
+# Ajustar dueño (opción 1: Apache como dueño)
+sudo chown -R www-data:www-data /var/www/html/ProduccionDB
+
+# Ajustar dueño (opción 2: rodrigo como dueño, Apache puede leer)
+sudo chown -R rodrigo:www-data /var/www/html/ProduccionDB
+```
+
+### Script rápido para aplicar permisos después de subir archivos
+```bash
+# Crear y ejecutar este script cuando subas archivos nuevos
+sudo find /var/www/html/ProduccionDB -type d -exec chmod 755 {} \;
+sudo find /var/www/html/ProduccionDB -type f -exec chmod 644 {} \;
+sudo chown -R rodrigo:www-data /var/www/html/ProduccionDB
+```
+
+## Tecnologías Utilizadas
+- **Backend**: PHP 7.x, MariaDB
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Librerías**: jQuery 3.3.1 (desde CDN)
+- **Servidor**: Apache 2.4.65 en Raspberry Pi (Debian)
+
+## Base de Datos
+- **Nombre**: ProduccionDB
+- **Usuario**: ProduccionDBAdmin
+- **Tabla**: empleados
+  - Campos: id, nombre, apellidos, correo, pass, rol, imagen, eliminado
+
+## Funcionalidades Implementadas
+- ✓ Listar empleados activos (eliminado = 0)
+- ✓ Eliminar empleado (soft delete con confirmación)
+- ✓ Actualización dinámica sin recargar página (AJAX)
+- ✓ Estilos CSS profesionales
+
+## Notas de Desarrollo
+- jQuery se carga desde CDN oficial: `https://code.jquery.com/jquery-3.3.1.min.js`
+- El archivo local `jquery-3.3.1.min.js` no se usa debido a problemas de carga
+- La eliminación es lógica, no física (marca `eliminado = 1`)
+- Los archivos PHP no deben tener etiqueta de cierre `?>` para evitar errores de headers
+
+## Despliegue
+1. Subir archivos a `/var/www/html/ProduccionDB/`
+2. Aplicar permisos (ver comandos arriba)
+3. Asegurarse que `db_connect.php` existe en el servidor
+4. Acceder via: `http://169.254.218.17/ProduccionDB/Empleados_Lista.php`
