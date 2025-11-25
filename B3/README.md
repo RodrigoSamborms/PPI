@@ -80,8 +80,32 @@ sudo chown -R rodrigo:www-data /var/www/html/ProduccionDB
 - La eliminación es lógica, no física (marca `eliminado = 1`)
 - Los archivos PHP no deben tener etiqueta de cierre `?>` para evitar errores de headers
 
+## Copiar Archivos desde Windows al Servidor (SSH/SCP)
+
+### Copiar un archivo individual
+```powershell
+scp C:\Users\sambo\Documents\Programacion\GitHub\PPI\B3\archivo.php rodrigo@169.254.218.17:/var/www/html/ProduccionDB/
+```
+
+### Copiar múltiples archivos PHP
+```powershell
+scp C:\Users\sambo\Documents\Programacion\GitHub\PPI\B3\*.php rodrigo@169.254.218.17:/var/www/html/ProduccionDB/
+```
+
+### Copiar archivos específicos
+```powershell
+scp C:\Users\sambo\Documents\Programacion\GitHub\PPI\B3\empleados_alta.php C:\Users\sambo\Documents\Programacion\GitHub\PPI\B3\empleados_lista.php rodrigo@169.254.218.17:/var/www/html/ProduccionDB/
+```
+
+### Formato general del comando SCP
+```
+scp [archivo_local] [usuario]@[ip]:[ruta_destino]
+```
+
+**Nota**: Te pedirá la contraseña del usuario `rodrigo` en la Raspberry Pi.
+
 ## Despliegue
-1. Subir archivos a `/var/www/html/ProduccionDB/`
+1. Subir archivos a `/var/www/html/ProduccionDB/` usando SCP (ver comandos arriba)
 2. Aplicar permisos (ver comandos arriba)
 3. Asegurarse que `db_connect.php` existe en el servidor
 4. Acceder via: `http://169.254.218.17/ProduccionDB/empleados_lista.php`
