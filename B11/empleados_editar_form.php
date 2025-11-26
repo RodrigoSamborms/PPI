@@ -49,6 +49,19 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
     <script>
+    function previsualizarImagen() {
+        var archivo = $('#imagen')[0].files[0];
+        if (archivo) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview').html('<p>Nueva imagen:</p><img src="' + e.target.result + '" style="max-width: 200px; max-height: 200px;">');
+            }
+            reader.readAsDataURL(archivo);
+        } else {
+            $('#preview').html('');
+        }
+    }
+
     $(document).ready(function() {
         // Validar correo cuando pierde el foco (excepto si es el mismo correo actual)
         var correoOriginal = $('#correo').val();
@@ -76,6 +89,7 @@ $conn->close();
             }
         });
         
+        $('#imagen').change(previsualizarImagen);
         $('#formEditarEmpleado').submit(function(e) {
             e.preventDefault();
             // Validar campos obligatorios (contraseña e imagen son opcionales)
@@ -148,6 +162,7 @@ $conn->close();
             </p>
         <?php endif; ?>
         <input type="file" id="imagen" name="imagen" accept="image/*">
+            <div id="preview"></div>
         <p style="color: #666; font-size: 12px; margin-top: -15px; margin-bottom: 20px;">
             * Dejar este campo vacío si no desea cambiar la imagen
         </p>
