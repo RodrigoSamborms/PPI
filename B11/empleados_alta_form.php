@@ -7,7 +7,22 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
     <script>
+    function previsualizarImagen() {
+        var archivo = $('#imagen')[0].files[0];
+        if (archivo) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview').html('<img src="' + e.target.result + '" style="max-width: 200px; max-height: 200px;">');
+            }
+            reader.readAsDataURL(archivo);
+        } else {
+            $('#preview').html('');
+        }
+    }
+
     $(document).ready(function() {
+        // Previsualizar imagen
+        $('#imagen').change(previsualizarImagen);
         // Validar correo cuando pierde el foco
         $('#correo').blur(function() {
             var correo = $(this).val();
@@ -74,6 +89,7 @@
         </select>
         <label for="imagen">Imagen:</label>
         <input type="file" id="imagen" name="imagen" accept="image/*">
+        <div id="preview"></div>
         <p style="color: #999; font-size: 13px;">* Campo opcional</p>
         <div>
             <input type="submit" value="Guardar Empleado">

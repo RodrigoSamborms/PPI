@@ -87,7 +87,7 @@
             
             // Acciones
             echo "<td>";
-            echo "<a href='productos_detalle.php?id=" . $row['id'] . "'>Ver</a> | ";
+            echo "<a href='productos_detalle.php?id=" . $row['id'] . "'>Ver Detalle</a> | ";
             echo "<a href='productos_editar_form.php?id=" . $row['id'] . "'>Editar</a> | ";
             echo "<a href='#' onclick='eliminarProducto(" . $row['id'] . ", \"" . htmlspecialchars($row['nombre']) . "\"); return false;'>Eliminar</a>";
             echo "</td>";
